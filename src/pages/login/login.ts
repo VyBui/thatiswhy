@@ -29,4 +29,8 @@ export class LoginPage {
   onSignup() {
     this.navCtrl.push(SignupPage);
   }
+
+  onLoginFacebook() {
+
+  }
 }

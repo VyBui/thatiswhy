@@ -13,6 +13,7 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import { DataService } from '../providers/data/data-service';
 
 export interface PageInterface {
   title: string;
@@ -57,19 +58,13 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public confData: ConferenceData,
-    public storage: Storage
+    public storage: Storage,
+    data: DataService
   ) {
     // Call any initial plugins when ready
     platform.ready().then(() => {
 
-    var config = {
-      apiKey: "AIzaSyD94CtGDpSqq4IY2qc7g_NTsCMxXakYPvQ",
-      authDomain: "footballtime-de7d5.firebaseapp.com",
-      databaseURL: "https://footballtime-de7d5.firebaseio.com",
-      storageBucket: "footballtime-de7d5.appspot.com",
-      messagingSenderId: "760113240995"
-    };
-    firebase.initializeApp(config);
+      data.init();
 
       StatusBar.styleDefault();
       Splashscreen.hide();
